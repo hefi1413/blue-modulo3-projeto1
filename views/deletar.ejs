@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>El Geladon - Excluir Paleta</title>
+  </head>
+
+  <body>
+    <main>
+        <div class="Home">
+            <div class="Home__container">
+                <div class="PaletaLista" id="paletaList">
+                    <form method="POST"  action="/paletas/deletar/<%= paleta.id %>">
+                        <div class="PaletaListaItem">
+                            <div>
+                                <div class="PaletaListaItem__sabor">${paleta.id} - ${paleta.sabor}</div>
+                                <div class="PaletaListaItem__preco">R$ ${paleta.preco}</div>
+                                <div class="PaletaListaItem__descricao">${paleta.descricao}</div>
+                                <div class="PaletaListaItem__opcoes">
+                                    <button class="PaletaListaItem__botoes">Editar</button>
+                                    <button class="PaletaListaItem__botoes">Excluir</button>
+                                </div>
+                            </div>
+                            <img class="PaletaListaItem__foto" src=${paleta.foto} alt=${`Paleta de ${paleta.sabor}`} /> 
+                        </div>`;
+                    </form>
+                </div>
+            </div>
+        </div>
+      
+
+        <div class="main__principal">
+          <span><%= paleta.sabor.toUpperCase() %></span>
+          <img
+            src="<%= paleta.foto %>"
+            alt="<%"
+            `Sabor
+            de
+            ${paleta.sabor}`
+            %
+          />>
+        </div>
+
+        <div class="main__buttons">
+          <div></div>
+          <a href="/">Cancelar</a>
+          <button type="submit">Deletar</button>
+          <div></div>
+        </div>
+      </form>
+    </main>
+
+    <center>
+      <small>
+        ©2022 Netflix Clone, Inc. Alunos da Blue EdTech - todos os direitos
+        reservados.
+      </small>
+    </center>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>

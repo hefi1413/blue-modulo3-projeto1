@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>El Geladon</title>
+  </head>
+
+  <body>
+    <header></header>
+
+    <main>
+      <div class="Home">
+        <div class="Home__header Header">
+          <div class="row">
+            <div class="Header__logo Logo">
+              <img
+                src="/images/logo.svg"
+                width="70px"
+                alt="Logo El Geladon"
+                class="Logo__icone"
+              />
+              <span class="Logo__titulo"> El Geladon </span>
+            </div>
+
+            <div class="Header__opcoes Opcoes">
+              <div class="Opcoes__sacola Sacola">
+                <img
+                  src="/images/icons/sacola.svg"
+                  width="40px"
+                  class="Sacola__icone"
+                  alt="Sacola de compras"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section id="cadastrar" class="section__cadastrar">
+          <form action="/paletas/create" method="post">
+            <div style="text-align: center">
+              <h2>CADASTRO DE PALETA</h2>
+            </div>
+
+            <br />
+
+            <div>
+              <label for="sabor"> Sabor: </label> <br />
+              <input
+                style="width: 100%"
+                type="text"
+                name="sabor"
+                id="sabor"
+                placeholder="Digite o sabor"
+                required
+              />
+              <br />
+            </div>
+
+            <div>
+              <label for="preco">Preço: </label> <br />
+              <input
+                style="width: 100%"
+                type="text"
+                name="preco"
+                id="preco"
+                placeholder="Digite o preço"
+              />
+              <br />
+            </div>
+
+            <div>
+              <label for="imagem">Imagem: </label> <br />
+              <input
+                style="width: 100%"
+                type="text"
+                name="foto"
+                id="foto"
+                placeholder="url imagem"
+                required
+              />
+              <br />
+            </div>
+
+            <div>
+              <label for="descricao">Descrição: </label> <br />
+              <textarea
+                name="descricao"
+                id="descricao"
+                rows="3"
+                cols="52"
+                required
+              >
+              </textarea>
+              <br />
+            </div>
+
+            <br />
+
+            <div
+              style="
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+              "
+            >
+              <button type="submit">Cadastrar</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

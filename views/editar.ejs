@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="imagex/png" href="../img/icons/netflix__icon.png">
+    <link rel="stylesheet" href="/style/style__cadastro.css">
+    <link rel="stylesheet" href="/style/style__message.css">
+    <link rel="stylesheet" href="/style/responsive.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" >
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <title>Detalhes</title>
+</head>
+<body>
+    
+    <nav>
+        <header>
+            <img class="logo" src="../img/icons/logo.png" alt="logo__netflix">
+            <div class="lista">
+                <a class="lista__navegacao" href="/">Inicio</a>
+                <a class="lista__navegacao" href="/#filmes">Filmes</a>
+                <a class="lista__navegacao" href="/#series">Series</a>
+                <a class="lista__navegacao" href="/cadastro">Cadastrar</a>
+            </div>
+
+        </header>
+            
+    </nav>
+
+<main>
+    <div class="container">
+        <% let _display = ( message ? "display:flex;" : "display:none;" ); %>
+        <section id="message" style=<%= _display %> >
+            <p><%= message %></p> <span id="close">&times;</span>
+        </section>
+        <section class="main__cadastro" id="cadastro">
+            <h2><% if (filme.tipo == 'filme'){ %>
+                    EDITAR FILME
+                <% } %>
+                <% if (filme.tipo == 'serie'){ %>
+                    EDITAR SÉRIE
+                <% } %>
+            </h2>
+
+            <form method="POST" action="/editar">
+                <label for="nome">Nome: </label>
+                <input type="text" id="nome" name="nome" value="<%= filme.nome %>" required="required">
+
+                <label for="tipo">Tipo: </label>
+                <select name="tipo" id="tipo" required="required" value=<%= filme.tipo %> >
+                    <option value="filme" <%= ( filme.tipo=='filme' ? 'selected' : '' ) %> >Filme</option>
+                    <option value="serie" <%= ( filme.tipo=='serie' ? 'selected' : '' ) %>>Série</option>
+                </select>
+
+                <label for="ano">Ano: </label>
+                <input type="number" id="ano" name="ano" required="required" min="1900" max="2022" value=<%= filme.ano %>>
+
+                <!-- apenas um (1) genero por filme-->
+                <label for="genero">Genero: </label>
+                <select name="genero" id="genero" value=<%= filme.genero %> required>
+                    <option value="drama" <%= ( filme.genero=='drama' ? 'selected' : '' ) %> >Drama</option>
+                    <option value="acao" <%= ( filme.genero=='acao' ? 'selected' : '' ) %>>Ação</option>
+                    <option value="ficcao" <%= ( filme.genero=='ficcao' ? 'selected' : '' ) %>>Ficção</option>
+                    <option value="aventura" <%= ( filme.genero=='aventura' ? 'selected' : '' ) %>>Aventura</option>
+                </select>
+
+                <label for="imagem">Link da Imagem: </label>
+                <textarea type="url" id="imagem" name="imagem" required="required" name="" id="" cols="30" rows="2"><%= filme.imagem %></textarea>
+
+                <label for="descricao">Descrição: </label>
+                <textarea type="text" id="descricao" name="descricao" required="required" name="" id="" cols="30" rows="5"><%= filme.descricao %></textarea>
+               
+                <!-- id do filme -->
+                <input type="hidden" name="id" id="id" value="<%= filme.id %>" >
+
+                <center>
+                    <button id="btnEditar" type="submit">SALVAR</button>    
+                </center>
+            </form>
+        </section>
+    </div>
+</main>
+<footer>
+
+    <div class="grupo__persona" id="footer__quem">
+        <h4>
+            Quem somos:
+        </h4>
+    </div>
+
+    <div class="grupo">
+        <div class="grupo__persona">
+            <h4>Alexandre Meirelles</h4>
+
+            <h6>Coordenador de Marketing</h6>
+            <h6>Dev. FullStack</h6>
+
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>NodeJS</li>
+                <li>Express</li>
+                <li>React</li>
+                <li>Linux</li>
+            </ul>
+
+            <div class="grupo__logo">
+                <a href="https://www.linkedin.com/in/alemeirelles/" target="_blank"><img src= "/img/icons/linkedin.png" alt="logo__linkedin"></a>
+                <a href="https://github.com/alexmeirelles" target="_blank"><img src= "/img/icons/github.png" alt="logo__GitHub"></a>
+                <a href="https://wa.link/dgii67" target="_blank"><img src= "/img/icons/whatsapp--v1.png" alt="logo__Whats"></a>
+            </div>                    
+
+        </div>
+
+
+        <div class="grupo__persona">
+            <h4>Elieldo Martins</h4>
+
+            <h6>Dev. Soft.</h6>
+            <h6>Dev. FullStack</h6>
+
+            <ul>
+                <li>Java</li>
+                <li>JavaScript</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>MVC</li>
+                <li>Nodejs</li>
+                <li>Express</li>
+            </ul>
+
+            <div class="grupo__logo">
+                <a href=" https://www.linkedin.com/in/elieldo-martins-05839673/" target="_blank"><img src= "/img/icons/linkedin.png" alt="logo__linkedin"></a>
+                <a href="https://github.com/hefi1413" target="_blank"><img src= "/img/icons/github.png" alt="logo__GitHub"></a>
+                <a href="https://wa.link/672b1b" target="_blank"><img src= "/img/icons/whatsapp--v1.png" alt="logo__GitHub"></a>
+            </div>                
+
+        </div>
+
+        <div class="grupo__persona">
+            <h4>Victor Paim</h4>
+
+            <h6>Auxiliar Financeiro</h6>
+            <h6>Dev. FullStack</h6>
+
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>NodeJS</li>
+                <li>Express</li>
+                <li>Python</li>
+                <li>MVC e BEM</li>
+            </ul>
+
+            <div class="grupo__logo">
+                <a href="https://www.linkedin.com/in/labupaim/" target="_blank"><img src= "/img/icons/linkedin.png" alt="logo__linkedin"></a>
+                <a href="https://github.com/LabuPaim" target="_blank"><img src= "/img/icons/github.png" alt="logo__GitHub"></a>
+                <a href="https://wa.me/qr/FREXR7E4HNB7N1" target="_blank"><img src= "/img/icons/whatsapp--v1.png" alt="logo__GitHub"></a>
+            </div>                    
+
+        </div>
+
+        
+
+    </div>
+    <div class="grupo__persona">
+        <h4>
+            Projeto
+        </h4>
+        <h6>
+            Netflix Clone
+        </h6>
+        <h6>
+            Projeto do curso FullStack da Blue EdTech.
+            Esse é o projeto final do módulo, esse projeto consiste na criação de um catálogo (com tema livre), onde é possível no futuro realizar as 4 operações do CRUD.
+        </h6>            
+    </div>
+
+    
+
+</footer>
+<center>
+    <small>
+     ©2022 Netflix Clone, Inc. Alunos da Blue EdTech - todos os direitos reservados.
+     </small> 
+ </center>
+
+<script src="/js/script.js"></script>
+</body>
+</html>
