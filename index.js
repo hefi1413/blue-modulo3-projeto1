@@ -27,11 +27,11 @@ function findPaleta(paletaId) {
 
 const paletas = [
   {
-    id: 1, // type => integer , gerada pelo servidor
+    id: 1, // type => integer , null=yes (gerada pelo servidor)
     sabor: 'Açaí', // type => string
-    descricao: 'Sorvete de açaí.', // type => string , pode ser null
+    descricao: 'Sorvete de açaí.', // type => string , null=yes
     foto: 'acai-com-leite-condensado.png', // type => string , foto na pasta /images/
-    preco: 10.0, // type => float  , pode ser null
+    preco: 10.0, // type => float  , null=yes
   },
   {
     id: 2,
@@ -82,6 +82,7 @@ app.get('/paletas/find/:id', (req, res) => {
     chosenPaleta.id = idParam;
     chosenPaleta.sabor = 'Não localizado';
     chosenPaleta.preco = 0;
+    chosenPaleta.foto = 'notfound-ice.png';
     chosenPaleta.descricao = message;
   }
 
@@ -163,9 +164,6 @@ app.delete('/paletas/delete/:id', (req, res) => {
   }
 
   paletas.splice(choosenPaleta, 1);
-
-  // decrementa identificador de paleta
-  ID--;
 
   message = 'Paleta deletada com sucesso!';
 

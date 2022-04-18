@@ -9,11 +9,12 @@ async function findAllPaletas() {
 const findPaletaById = async () => {
   const id = document.getElementById('idPaleta').value;
 
-  if (!id) {
-    return;
-  }
-
   let url = `${baseUrl}/find/${id}`;
+
+  // se não informado algum id, retorna todas paletas
+  if (!id) {
+    url = `${baseUrl}/find`;
+  }
 
   findPaletas(url);
 };
@@ -29,7 +30,9 @@ async function findPaletas(url) {
             <div class="PaletaListaItem__sabor">${paleta.id} - ${
       paleta.sabor
     }</div>
-            <div class="PaletaListaItem__preco">R$ ${paleta.preco}</div>
+            <div class="PaletaListaItem__preco">R$ ${paleta.preco.toFixed(
+              2,
+            )}</div>
             <div class="PaletaListaItem__descricao">${paleta.descricao}</div>
         </div>
       <img class="PaletaListaItem__foto" src=/images/${
